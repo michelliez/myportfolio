@@ -1,36 +1,3 @@
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-
-  return (
-    <>
-    <h1 id ="Name">
-      Michelle Zhou
-    </h1>
-    <p id ="Student">
-      I am a student at Columbia
-    </p>
-    <p id = "Hobby">
-      I like to draw
-    </p>
-    </>
-  )
-}
-
- <div class="hero">
-    <div class="overlay">
-      <h1>Welcome to My Website</h1>
-      <p>Clean design with a full-screen background image</p>
-      <button>Get Started</button>
-    </div>
-  </div>
-
-
-export default App */
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
