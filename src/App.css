@@ -294,6 +294,11 @@ body {
   font-size: 1.3rem;  /* Only affects About section */
 }
 
+#creative .section-text{
+  font-size: 1.45rem;
+  text-align: center;
+}
+
 .about-image {
   flex: 0 0 550px;
 }
@@ -420,5 +425,70 @@ body {
   .time-display {
     font-size: 0.7rem;
     min-width: 30px;
+  }
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav {
+    position: relative;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    border-left: 1px solid #333;
+  }
+
+  .nav-list.open {
+    right: 0;
+  }
+
+  .nav-button {
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .nav-list li {
+    width: 100%;
   }
 }

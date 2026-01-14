@@ -40,6 +40,7 @@ export default function App() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    window.scrollTo(0, 0); // Scroll to top when changing pages
     
     if (page === 'creative' && audioRef.current && !isPlaying) {
       audioRef.current.play();
@@ -124,6 +125,8 @@ export default function App() {
 }
 
 function Navigation({ currentPage, setCurrentPage }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const navItems = [
     { id: 'home', label: 'Home & About' },
     { id: 'academic', label: 'Academic & Extracurriculars' },
@@ -132,13 +135,28 @@ function Navigation({ currentPage, setCurrentPage }) {
     { id: 'contact', label: 'Contact' }
   ];
 
+  const handleNavClick = (id) => {
+    setCurrentPage(id);
+    setIsMenuOpen(false); // Close menu after clicking
+  };
+
   return (
     <nav className="nav">
-      <ul className="nav-list">
+      <button 
+        className="hamburger"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
         {navItems.map(item => (
           <li key={item.id}>
             <button
-              onClick={() => setCurrentPage(item.id)}
+              onClick={() => handleNavClick(item.id)}
               className={`nav-button ${currentPage === item.id ? 'active' : ''}`}
             >
               {item.label}
