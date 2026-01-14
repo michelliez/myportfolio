@@ -439,8 +439,8 @@ body {
   padding: 0.5rem;
   position: absolute;
   right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 1.5rem;  
+  transform: none;  
   z-index: 60;
 }
 
