@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 1.6;
 }
 
@@ -89,7 +89,7 @@ body {
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 300;
   margin-bottom: 1rem;
 }
@@ -112,7 +112,7 @@ body {
   font-size: 1.125rem;
   color: #ccc;
   margin-bottom: 1.5rem;
-  max-width: 48rem;
+  max-width: 100rem;
 }
 
 /* Grid Layout */
@@ -145,6 +145,46 @@ body {
 .card-description {
   color: #aaa;
   font-size: 1rem;
+}
+
+/* Artwork Cards */
+.artwork-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.artwork-image-container {
+  width: 100%;
+  height: 250px; /* fixed height */
+  overflow: hidden;
+  background-color: #111;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+}
+
+.artwork-image {
+  height: 100%;          /* fill container height */
+  width: auto;           /* keep aspect ratio */
+  object-fit: contain;   /* ensure entire image fits inside */
+  transition: transform 0.3s ease;
+}
+
+.artwork-card:hover .artwork-image {
+  transform: scale(1.05);
+}
+
+.artwork-card .card-title,
+.artwork-card .card-description {
+  padding: 0 2rem;
+}
+
+.artwork-card .card-title {
+  margin-top: 1.5rem;
+}
+
+.artwork-card .card-description {
+  padding-bottom: 2rem;
 }
 
 /* Skills */
@@ -216,8 +256,169 @@ body {
   }
 }
 
+.image-section {
+  margin: 2rem 0;
+}
+
+.section-image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border: 1px solid #333;
+}
+
+.image-caption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+/* About section with side-by-side layout */
+.about-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.about-text {
+  flex: 1;
+  margin-top: 2rem;  /* Adjust this value to move text up/down */
+}
+
+#about .section-text {
+  font-size: 1.3rem;  /* Only affects About section */
+}
+
+.about-image {
+  flex: 0 0 550px;
+}
+
+.about-image .section-image {
+  max-width: 550px;
+}
+
+/* Make it stack on mobile */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .about-image {
+    flex: 1;
+  }
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Audio Player */
+.audio-player {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 100;
+  max-width: 500px;
+  width: 90%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.audio-player.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.audio-player.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+
+.play-pause-btn {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.play-pause-btn:hover {
+  background-color: #333;
+}
+
+.seek-bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: #333;
+  outline: none;
+  cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.seek-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.time-display {
+  font-size: 0.8rem;
+  color: #ccc;
+  min-width: 35px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .audio-player {
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    max-width: 400px;
+  }
+  
+  .play-pause-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .time-display {
+    font-size: 0.7rem;
+    min-width: 30px;
   }
 }
