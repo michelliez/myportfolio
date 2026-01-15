@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function SkillsPage() {
-  const skills = ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4', 'Skill 5', 'Skill 6'];
+  const skills = ['Data Analysis', 'Cryo-EM', 'Java', 'Skill 4', 'Skill 5', 'Skill 6'];
 
   return (
     <div className="page">

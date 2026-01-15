@@ -492,3 +492,18 @@ body {
     width: 100%;
   }
 }
+
+/* Clickable Card Links */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link .card {
+  cursor: pointer;
+}
+
+.card-link:hover .card {
+  border-color: #999;
+}
